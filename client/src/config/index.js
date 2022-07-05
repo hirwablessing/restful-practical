@@ -1,0 +1,1 @@
+export const API_URL = 'http://server:5000/api/v1';
