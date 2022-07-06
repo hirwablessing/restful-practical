@@ -2,14 +2,14 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import PopupMolecule from "./Popup";
 
-export default function NewVehicle() {
+export default function NewCarOwner() {
   const [showPopup] = React.useState(true);
   const navigate = useNavigate();
 
   return (
     <PopupMolecule
       open={showPopup}
-      title={"Register New vehicle"}
+      title={"Register New Car owner"}
       onClose={() => navigate(-1)}
     >
       <div className="px-[10px]">
@@ -97,7 +97,7 @@ export default function NewVehicle() {
             type="submit"
             className="rounded-2xl font-semibold flex justify-center items-center mt-2 w-full text-white bg-primary p-3 "
           >
-            Register vehicle
+            Register car owner
           </button>
         </div>
       </div>
