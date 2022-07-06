@@ -1,8 +1,33 @@
 import Owners from '../database/models/owner.model';
+import Joi from 'joi';
+
+//create Owner
+export const registerOwner = async (req, res) => {
+    const { error } = validateOwner(req.body);
+    if (error) return res.status(400).send({
+        success: false,
+        message: error.details[0].message
+    });
+
+    const owner = new Owners({
+        names: req.body.names,
+        phone: req.body.phone,
+        nationalId: req.body.nationalId,
+        address: req.body.address,
+    });
+    try {
+        await owner.save();
+        res.send({ success: true, message: 'Owner created successfully', data: owner });
+    }
+    catch (err) {
+        res.status(500).send({ success: false, message: err.message });
+    }
+
+}
 
 export const getAllOwners = async (req, res) => {
-    const uowners = await Owners.find();
-    return res.status(200).json({ success: true, data: uowners });
+    const owners = await Owners.find();
+    return res.status(200).json({ success: true, data: owners });
 }
 
 export const getOwnerById = async (req, res) => {
@@ -30,4 +55,15 @@ export const deleteOwner = async (req, res) => {
 
     await Owners.findOneAndDelete({ _id: req.params.id });
     return res.status(200).json({ success: true, data: owner });
+}
+
+//validate Owner
+function validateOwner(owner) {
+    const schema = {
+        names: Joi.string().min(3).max(50).required(),
+        phone: Joi.string().min(10).max(12).required(),
+        nationalId: Joi.string().min(16).max(16).required(),
+        address: Joi.string().min(3).max(50).required(),
+    };
+    return Joi.validate(owner, schema);
 }

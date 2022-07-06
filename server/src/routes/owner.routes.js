@@ -1,9 +1,10 @@
 import { Router } from 'express';
 import { registerDefinition } from 'swaggiffy';
-import { deleteOwner, getAllOwners, getOwnerByEmail, getOwnerById, updateOwner } from '../controllers/owner.controller';
+import { registerOwner, deleteOwner, getAllOwners, getOwnerByEmail, getOwnerById, updateOwner } from '../controllers/owner.controller';
 
 const router = Router();
 
+router.post('/', registerOwner);
 router.put('/:id', updateOwner);
 router.get('/', getAllOwners);
 router.get('/:id', getOwnerById);
