@@ -1,6 +1,3 @@
-import { BASE_URL } from "../../constants/url";
-
-
 /**
  * const authDto = {
     names: '',
@@ -11,6 +8,8 @@ import { BASE_URL } from "../../constants/url";
 }
  * 
  */
+
+import { BASE_URL } from "../../../client/src/constants/url";
 
 async function register(authDto) {
     try {
@@ -32,7 +31,7 @@ async function register(authDto) {
 
 async function login(authDto) {
     try {
-        const res = await fetch(`${BASE_URL}/auth/register`, {
+        const res = await fetch(`${BASE_URL}/auth/signin`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -47,6 +46,8 @@ async function login(authDto) {
         return {};
     }
 }
+
+//get user
 
 
 export { register, login };
