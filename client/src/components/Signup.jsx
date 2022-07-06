@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Signup() {
   return (
@@ -17,13 +18,13 @@ export default function Signup() {
               <div className="mb-10 flex flex-col gap-4">
                 <h1 className="text-3xl font-bold text-gray-900">Sign up</h1>
                 <p className="flex gap-1 text-base">
-                  <span className="text-[#ADB5BD]">
+                  <span className="text-[#ADB5BD] font-semibold">
                     {" "}
                     Already have an account?
                   </span>{" "}
-                  <a className="text-primary" href="/">
+                  <Link className="text-primary font-semibold" to="/">
                     Login
-                  </a>
+                  </Link>
                 </p>
               </div>
 
@@ -31,7 +32,7 @@ export default function Signup() {
                 <div className="flex flex-col gap-2">
                   <label
                     htmlFor="names"
-                    className="block text-sm font-medium text-gray-900"
+                    className="block text-sm font-semibold text-gray-900"
                   >
                     Full names
                   </label>
@@ -47,7 +48,7 @@ export default function Signup() {
                 <div className="flex flex-col gap-2">
                   <label
                     htmlFor="email"
-                    className="block text-sm font-medium text-gray-900"
+                    className="block text-sm font-semibold text-gray-900"
                   >
                     Email address
                   </label>
@@ -62,7 +63,7 @@ export default function Signup() {
                 <div className="flex flex-col gap-2">
                   <label
                     htmlFor="phone"
-                    className="block text-sm font-medium text-gray-900"
+                    className="block text-sm font-semibold text-gray-900"
                   >
                     Phone number
                   </label>
@@ -79,7 +80,7 @@ export default function Signup() {
                 <div className="flex flex-col gap-2">
                   <label
                     htmlFor="nationa_id"
-                    className="block text-sm font-medium text-gray-900"
+                    className="block text-sm font-semibold text-gray-900"
                   >
                     National Id
                   </label>
@@ -98,7 +99,7 @@ export default function Signup() {
                 <div className="flex flex-col gap-2">
                   <label
                     htmlFor="phone"
-                    className="block text-sm font-medium text-gray-900"
+                    className="block text-sm font-semibold text-gray-900"
                   >
                     Password
                   </label>
@@ -115,7 +116,7 @@ export default function Signup() {
 
               <spam
                 type="submit"
-                className="rounded-2xl flex justify-center items-center mb-20 mt-4 w-full text-white bg-primary p-3 "
+                className="font-semibold rounded-2xl flex justify-center items-center mb-20 mt-4 w-full text-white bg-primary p-3 "
               >
                 SignUp
               </spam>

@@ -10,3 +10,7 @@ input:focus {
   font-size: 14px;
   color: "#ADB5BD";
 }
+
+body {
+  font-family: "Outfit", sans-serif;
+}
