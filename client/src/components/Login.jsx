@@ -1,9 +1,36 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { login } from "../../../server/src/services/auth.service";
 
 import "../styles/login.css";
 
 export default function Login() {
+  const navigate = useNavigate();
+  const [values, setValues] = React.useState({
+    email: "",
+    password: "",
+    names: "",
+    phone: "",
+    nationalId: "",
+  });
+
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setValues({ ...values, [name]: value });
+  }
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const user = await login(values);
+
+    if (user.data) {
+      toast.success("User logged in successfully", { duration: 3000 });
+      navigate("/owners");
+    } else {
+      toast.error(user.message);
+    }
+  }
+
   return (
     <div>
       <div className="w-full overflow-hidden rounded-3xl bg-white">
@@ -16,7 +43,7 @@ export default function Login() {
             </p>
           </div>
           <div className="w-full py-10 px-5  md:flex md:justify-center md:items-center  md:px-10">
-            <form className="md:ml-[50px]">
+            <form className="md:ml-[50px]" onSubmit={handleSubmit}>
               <div className="mb-10 flex flex-col gap-4">
                 <h1 className="text-3xl font-bold text-black">Login</h1>
                 <p className="flex gap-1 text-base">
@@ -39,6 +66,7 @@ export default function Login() {
                     Email address
                   </label>
                   <input
+                    onChange={handleChange}
                     name="email"
                     id="email"
                     placeholder="john@gmail.com"
@@ -48,12 +76,13 @@ export default function Login() {
 
                 <div className="flex flex-col gap-2">
                   <label
-                    htmlFor="phone"
+                    htmlFor="password"
                     className="block text-sm font-semibold text-black"
                   >
                     Password
                   </label>
                   <input
+                    onChange={handleChange}
                     required
                     name="password"
                     id="password"

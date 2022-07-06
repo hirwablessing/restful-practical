@@ -30,5 +30,23 @@ async function register(authDto) {
     }
 }
 
+async function login(authDto) {
+    try {
+        const res = await fetch(`${BASE_URL}/auth/register`, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(authDto)
+        });
+        const content = await res.json();
 
-export { register };
+        return content;
+    } catch (error) {
+        return {};
+    }
+}
+
+
+export { register, login };
