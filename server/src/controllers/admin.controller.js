@@ -28,16 +28,21 @@ export const signup = async (req, res) => {
 }
 
 export const signin = async (req, res) => {
+
     const { email, password } = req.body;
-    const user = await Admin.findOne({ email });
-    if (!user) return res.status(400).json({ success: false, message: "Invalid Credentials" });
+    try {
+        const user = await Admin.findOne({ email });
+        if (!user) return res.status(400).json({ success: false, message: "Invalid Credentials" });
 
-    const isMatch = await comparePassword(password, user.password);
-    if (!isMatch) return res.status(400).json({ success: false, message: "Invalid Credentials" });
+        const isMatch = await comparePassword(password, user.password);
+        if (!isMatch) return res.status(400).json({ success: false, message: "Invalid Credentials" });
 
-    const token = sign({ _id: user._id, email, name: user.name }, process.env.JWT_KEY, { expiresIn: '1d' });
-    return res.status(200).json({ success: true, message: "User logged in successfully", data: { token, user } });
+        const token = sign({ _id: user._id, email, name: user.name }, process.env.JWT_KEY, { expiresIn: '1d' });
+        return res.status(200).json({ success: true, message: "User logged in successfully", data: { token, user } });
 
+    } catch (error) {
+        return res.status(400).json({ success: false, message: error.message });
+    }
 }
 
 export const getProfile = async (req, res) => {
