@@ -771,11 +771,11 @@
           },
           "updatedAt": {
             "type": "string",
-            "example": "7/6/2022, 2:16:07 PM"
+            "example": "7/6/2022, 2:23:30 PM"
           },
           "createdAt": {
             "type": "string",
-            "example": "7/6/2022, 2:16:07 PM"
+            "example": "7/6/2022, 2:23:30 PM"
           }
         }
       },
@@ -825,11 +825,11 @@
           },
           "updatedAt": {
             "type": "string",
-            "example": "7/6/2022, 2:16:07 PM"
+            "example": "7/6/2022, 2:23:30 PM"
           },
           "createdAt": {
             "type": "string",
-            "example": "7/6/2022, 2:16:07 PM"
+            "example": "7/6/2022, 2:23:30 PM"
           }
         }
       },
@@ -876,11 +876,11 @@
           },
           "updatedAt": {
             "type": "string",
-            "example": "7/6/2022, 2:16:07 PM"
+            "example": "7/6/2022, 2:23:30 PM"
           },
           "createdAt": {
             "type": "string",
-            "example": "7/6/2022, 2:16:07 PM"
+            "example": "7/6/2022, 2:23:30 PM"
           }
         }
       }

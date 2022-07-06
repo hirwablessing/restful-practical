@@ -1,7 +1,7 @@
 import React from "react";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
-import { login } from "../../../server/src/services/auth.service";
+import { login, userProfile } from "../../../server/src/services/auth.service";
 
 import "../styles/login.css";
 
@@ -24,6 +24,8 @@ export default function Login() {
     if (user.data.token) {
       localStorage.setItem("token", user.data.token);
       toast.success("User logged in successfully", { duration: 3000 });
+      const userData = await userProfile();
+      localStorage.setItem("user", JSON.stringify(userData.data));
       navigate("/owners");
     } else {
       toast.error(user.message);

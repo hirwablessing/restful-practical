@@ -12,6 +12,7 @@
 import { BASE_URL } from "../../../client/src/constants/url";
 
 async function register(authDto) {
+    //register new user
     try {
         const res = await fetch(`${BASE_URL}/auth/register`, {
             method: 'POST',
@@ -30,6 +31,7 @@ async function register(authDto) {
 }
 
 async function login(authDto) {
+    //login user
     try {
         const res = await fetch(`${BASE_URL}/auth/signin`, {
             method: 'POST',
@@ -47,7 +49,28 @@ async function login(authDto) {
     }
 }
 
-//get user
+async function userProfile(authDto) {
+    //get current user profile
+    try {
+        const res = await fetch(`${BASE_URL}/auth/profile`, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': `${localStorage.getItem('token')}`
+            },
+            body: JSON.stringify(authDto)
+        });
+        const content = await res.json();
+
+        return content;
+    } catch (error) {
+        return {};
+    }
+}
+
+//get current user profile 
 
 
-export { register, login };
+
+export { register, login, userProfile };
