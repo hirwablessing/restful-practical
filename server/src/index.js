@@ -19,14 +19,15 @@ app.get('/', (req, res) => {
     })
 });
 
-new Swaggiffy().setupExpress(app).swaggiffy(); // Setup Swaggiffy for documentation
-
 app.use('/api/v1/auth', authRoute);
 app.use('/api/v1/owners', ownersRoute);
 app.use('/api/v1/vehicles', vehiclesRoute);
 
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log("App running on port ...  " + PORT);
 })
+
+// Setup Swaggiffy for documentation
+new Swaggiffy().setupExpress(app).swaggiffy();
