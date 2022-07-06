@@ -16,7 +16,7 @@
       },
       "version": "1.0.0"
     },
-    "host": "localhost:5000",
+    "host": "localhost:5230",
     "basePath": "/",
     "schemes": [
       "http"
@@ -771,11 +771,11 @@
           },
           "updatedAt": {
             "type": "string",
-            "example": "7/6/2022, 12:55:14 PM"
+            "example": "7/6/2022, 5:12:53 PM"
           },
           "createdAt": {
             "type": "string",
-            "example": "7/6/2022, 12:55:14 PM"
+            "example": "7/6/2022, 5:12:53 PM"
           }
         }
       },
@@ -825,11 +825,11 @@
           },
           "updatedAt": {
             "type": "string",
-            "example": "7/6/2022, 12:55:14 PM"
+            "example": "7/6/2022, 5:12:53 PM"
           },
           "createdAt": {
             "type": "string",
-            "example": "7/6/2022, 12:55:14 PM"
+            "example": "7/6/2022, 5:12:53 PM"
           }
         }
       },
@@ -876,11 +876,11 @@
           },
           "updatedAt": {
             "type": "string",
-            "example": "7/6/2022, 12:55:14 PM"
+            "example": "7/6/2022, 5:12:53 PM"
           },
           "createdAt": {
             "type": "string",
-            "example": "7/6/2022, 12:55:14 PM"
+            "example": "7/6/2022, 5:12:53 PM"
           }
         }
       }

@@ -1,5 +1,3 @@
-import { Navigate } from "react-router-dom";
-import { Routes, BrowserRouter as Router, Route } from "react-router-dom";
 import {
   Routes,
   BrowserRouter as Router,
@@ -14,7 +12,6 @@ import NewVehicle from "./components/NewVehicle";
 import LinkToOwner from "./components/LinkToOwner";
 import Dashboard from "./layout/Dashboard";
 import NewCarOwner from "./components/NewCarOwner";
-import toast from "react-hot-toast";
 
 function App() {
   return (
@@ -25,17 +22,11 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/dashboard" element={<Dashboard />}>
           <Route path="vehicles" element={<Vehicles />} />
-          <Route path="/new-vehicle" element={<NewVehicle />} />
-          <Route path="/link-vehicle" element={<LinkToOwner />} />
-          <Route path="owners" index element={<CarOwners />} /> <Route
-          path="/new-owner"
-          element={
-            <PrivateRoute>
-              <NewCarOwner />
-            </PrivateRoute>
-          }
-        />
-        </Route>       
+          <Route path="new-vehicle" element={<NewVehicle />} />
+          <Route path="link-vehicle" element={<LinkToOwner />} />
+          <Route path="owners" index element={<CarOwners />} />{" "}
+          <Route path="new-owner" element={<NewCarOwner />} />
+        </Route>
       </Routes>
     </Router>
   );
