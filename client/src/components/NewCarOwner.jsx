@@ -1,10 +1,45 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import PopupMolecule from "./Popup";
+import toast from "react-hot-toast";
+import { createOwner } from "../../../server/src/services/auth.service";
+
 
 export default function NewCarOwner() {
   const [showPopup] = React.useState(true);
   const navigate = useNavigate();
+
+  const [values, setValues] = React.useState({
+    address: "",
+    names: "",
+    phone: "",
+    nationalId: "",
+  });
+
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setValues({ ...values, [name]: value });
+  }
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const user = await createOwner(values);
+
+    if (user.data) {
+      toast.success("User created successfully", { duration: 3000 });
+      setValues({
+        email: "",
+        password: "",
+        names: "",
+        phone: "",
+        nationalId: "",
+      });
+
+      navigate("/");
+    } else {
+      toast.error(user.message);
+    }
+  }
 
   return (
     <PopupMolecule
@@ -13,7 +48,7 @@ export default function NewCarOwner() {
       onClose={() => navigate(-1)}
     >
       <div className="px-[10px]">
-        <div className="-mx-3 flex mt-4 flex-col gap-4">
+        <form className="-mx-3 flex mt-4 flex-col gap-4" onSubmit={handleSubmit}>
           <div className="flex flex-col gap-2">
             <label
               htmlFor="names"
@@ -34,18 +69,18 @@ export default function NewCarOwner() {
               htmlFor="email"
               className="block text-sm font-semibold text-gray-900"
             >
-              owner email address
+              owner address
             </label>
             <input
-              name="email"
-              id="email"
-              placeholder="john@gmail.com"
+              name="address"
+              id="address"
+              placeholder="Kigali"
               className=" rounded-2xl border border-gray-300 text-gray-900 sm:text-sm outline-none focus:ring-blue-500 block w-[346px] p-2.5"
             />
           </div>
           <div className="flex flex-col gap-2">
             <label
-              htmlFor="nationa_id"
+              htmlFor="nationalId"
               className="block text-sm font-semibold text-gray-900"
             >
               Owner national Id
@@ -55,7 +90,7 @@ export default function NewCarOwner() {
               max="16"
               min="16"
               required
-              name="nationa_id"
+              name="nationalId"
               id="nationa_id"
               placeholder="1200456783452375"
               className=" rounded-2xl border border-gray-300 text-gray-900 sm:text-sm outline-none focus:ring-blue-500 block w-[346px] p-2.5"
@@ -69,6 +104,7 @@ export default function NewCarOwner() {
               Owner phone number
             </label>
             <input
+            onChange={handleChange}
               type="tel"
               name="phone"
               id="phone"
@@ -83,7 +119,7 @@ export default function NewCarOwner() {
           >
             Register car owner
           </button>
-        </div>
+        </form>
       </div>
     </PopupMolecule>
   );

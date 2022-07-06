@@ -30,6 +30,14 @@ async function register(authDto) {
     }
 }
 
+/**
+ * const authDto = {
+    email: '',
+    password: ''
+}
+ * 
+ */
+
 async function login(authDto) {
     //login user
     try {
@@ -57,9 +65,39 @@ async function userProfile(authDto) {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                'Authorization': `${localStorage.getItem('token')}`
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
             },
             body: JSON.stringify(authDto)
+        });
+        const content = await res.json();
+
+        return content;
+    } catch (error) {
+        return {};
+    }
+}
+
+/**
+ * const authDto = {
+    names: '',
+    phone: '',
+    nationalId: '',
+    address: '',
+}
+ * 
+ */
+
+async function createOwner(ownerDto) {
+    //get current user profile
+    try {
+        const res = await fetch(`${BASE_URL}/owners`, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            },
+            body: JSON.stringify(ownerDto)
         });
         const content = await res.json();
 
