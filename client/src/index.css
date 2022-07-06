@@ -1,14 +1,16 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input:focus {
+  @apply border-primary border-spacing-2;
 }
 
-*{
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+::-webkit-input-placeholder {
+  font-size: 14px;
+  color: "#ADB5BD";
+}
+
+body {
+  font-family: "Outfit", sans-serif;
 }
