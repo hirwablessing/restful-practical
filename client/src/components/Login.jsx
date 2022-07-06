@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import "../styles/login.css";
 
@@ -68,7 +68,7 @@ export default function Login() {
                 type="submit"
                 className="rounded-2xl font-semibold flex justify-center items-center mb-20 mt-4 w-full text-white bg-primary p-3 "
               >
-                SignUp
+                Login
               </button>
             </form>
           </div>
