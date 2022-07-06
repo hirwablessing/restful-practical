@@ -26,16 +26,15 @@ export default function NewCarOwner() {
     const user = await createOwner(values);
 
     if (user.data) {
-      toast.success("User created successfully", { duration: 3000 });
+      toast.success("Owner created successfully", { duration: 3000 });
       setValues({
-        email: "",
-        password: "",
+        address: "",
         names: "",
         phone: "",
         nationalId: "",
       });
 
-      navigate("/");
+      navigate("/owners");
     } else {
       toast.error(user.message);
     }

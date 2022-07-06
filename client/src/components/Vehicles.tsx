@@ -1,7 +1,21 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { getVehicles } from "../../../server/src/services/auth.service";
 
 export default function Vehicles() {
+  const [data, setData] = useState([]);
+
+  useEffect(()=>{
+    async function fetchData(){
+      const owners = await getVehicles();
+      setData(owners.data);
+    }
+
+    fetchData();
+  },[])
+
+
+
   const navigate = useNavigate();
   return (
     <div>
@@ -150,40 +164,41 @@ export default function Vehicles() {
                           </td>
                         </tr>
 
+    {data.map(vehicle => (
                         <tr>
                           <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                             <div className="flex items-center">
                               <div className="ml-3">
                                 <p className="text-gray-900 whitespace-no-wrap">
-                                  AF12334
+                                  {vehicle?.chasisNumber}
                                 </p>
                               </div>
                             </div>
                           </td>
                           <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                             <p className="text-gray-900 whitespace-no-wrap">
-                              BMW
+                              {vehicle?.manufacturer}
                             </p>
                           </td>
                           <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                             <p className="text-gray-900 whitespace-no-wrap">
-                              2014
+                              {vehicle?.manufactureYear}
                             </p>
                           </td>
                           <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                             <p className="text-gray-900 whitespace-no-wrap">
-                              13 Million
+                              {vehicle?.price}
                             </p>
                           </td>
                           <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                             <p className="text-gray-900 whitespace-no-wrap">
-                              RAC234M
+                              {vehicle.plateNumber}
                             </p>
                           </td>
 
                           <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                             <p className="text-gray-900 whitespace-no-wrap">
-                              Toyota RAVA 4
+                              {vehicle.model}
                             </p>
                           </td>
 
@@ -198,6 +213,8 @@ export default function Vehicles() {
                             </p>
                           </td>
                         </tr>
+
+    ))}
                       </tbody>
                     </table>
                   </div>

@@ -1,7 +1,18 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { getOwners } from "../../../server/src/services/auth.service";
 
 export default function Dashboard() {
+  const [data, setData] = useState([]);
+
+  useEffect(()=>{
+    async function fetchData(){
+      const owners = await getOwners();
+      setData(owners.data);
+    }
+
+    fetchData();
+  },[])
 
 
   const navigate = useNavigate();
@@ -101,19 +112,21 @@ export default function Dashboard() {
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
+
+
+                      <tr>
                           <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                             <div className="flex items-center">
                               <div className="ml-3">
                                 <p className="text-gray-900 whitespace-no-wrap">
-                                  Dana Moore
+                                  Blessing Hirwa
                                 </p>
                               </div>
                             </div>
                           </td>
                           <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                             <p className="text-gray-900 whitespace-no-wrap">
-                              emmy@gmail.com
+                              blessing@gmail.com
                             </p>
                           </td>
                           <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
@@ -134,47 +147,50 @@ export default function Dashboard() {
                             </div>
                           </td>
                         </tr>
+                       
+              {data.map(owner => (
 
                         <tr>
                           <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                             <div className="flex items-center">
                               <div className="ml-3">
                                 <p className="text-gray-900 whitespace-no-wrap">
-                                  Dana Moore
+                                  {owner.names}
                                 </p>
                               </div>
                             </div>
                           </td>
                           <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                             <p className="text-gray-900 whitespace-no-wrap">
-                              emmy@gmail.com
+                              {owner?.email}
                             </p>
                           </td>
                           <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                             <p className="text-gray-900 whitespace-no-wrap">
-                              1199234885080378
+                              {owner?.nationalId}
                             </p>
                           </td>
                           <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                             <p className="text-gray-900 whitespace-no-wrap">
-                              0788346262
+                              {owner?.phone}
                             </p>
                           </td>
                           <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                             <div className="flex gap-4">
-                              <span>icon</span>
+                              <span>Edit</span>
 
-                              <span>icon</span>
+                              <span>Delete</span>
                             </div>
                           </td>
                         </tr>
+              ))}
                       </tbody>
                     </table>
                   </div>
 
                   <div className="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between">
                     <span className="text-xs xs:text-sm text-gray-900">
-                      Showing 1 to 4 of 50 Entries
+                      Showing 1 to 10 of {data?.length} Entries
                     </span>
                     <div className="inline-flex mt-2 xs:mt-0">
                       <button className="text-sm text-lightblue transition duration-150 hover:bg-primary bg-primary font-semibold py-2 px-4 rounded-l">

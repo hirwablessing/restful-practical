@@ -63,11 +63,8 @@ async function userProfile(authDto) {
         const res = await fetch(`${BASE_URL}/auth/profile`, {
             method: 'GET',
             headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
                 'Authorization': `Bearer ${localStorage.getItem('token')}`
             },
-            body: JSON.stringify(authDto)
         });
         const content = await res.json();
 
@@ -98,6 +95,60 @@ async function createOwner(ownerDto) {
                 'Authorization': `Bearer ${localStorage.getItem('token')}`
             },
             body: JSON.stringify(ownerDto)
+        });
+        const content = await res.json();
+
+        return content;
+    } catch (error) {
+        return {};
+    }
+}
+
+async function createVehicle(vehicleDto) {
+    //get current user profile
+    try {
+        const res = await fetch(`${BASE_URL}/vehicle`, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            },
+            body: JSON.stringify(vehicleDto)
+        });
+        const content = await res.json();
+
+        return content;
+    } catch (error) {
+        return {};
+    }
+}
+
+async function getOwners() {
+    //get current user profile
+    try {
+        const res = await fetch(`${BASE_URL}/owners`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            },
+        });
+        const content = await res.json();
+
+        return content;
+    } catch (error) {
+        return {};
+    }
+}
+
+async function getVehicles() {
+    //get current user profile
+    try {
+        const res = await fetch(`${BASE_URL}/vehicle`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            },
         });
         const content = await res.json();
 
