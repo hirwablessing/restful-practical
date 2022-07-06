@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { getOwners } from "../../../server/src/services/auth.service";
+import { getOwners } from "../services/auth.service";
 
 export default function Dashboard() {
   const [data, setData] = useState([]);

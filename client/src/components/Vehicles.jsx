@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { getVehicles } from "../../../server/src/services/auth.service";
+import { getVehicles } from "../services/auth.service";
 
 export default function Vehicles() {
   const [data, setData] = useState([]);

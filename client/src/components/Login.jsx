@@ -1,7 +1,7 @@
 import React from "react";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
-import { login, userProfile } from "../../../server/src/services/auth.service";
+import { login, userProfile } from "../services/auth.service";
 
 import "../styles/login.css";
 
@@ -19,23 +19,32 @@ export default function Login() {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    const user = await login(values);
 
-    if (user.data.token) {
-      localStorage.setItem("token", user.data.token);
-      toast.success("User logged in successfully", { duration: 3000 });
-      const userData = await userProfile();
-      localStorage.setItem("user", JSON.stringify(userData.data));
-      navigate("/owners");
-    } else {
-      toast.error(user.message);
+    try {
+      const user = await login(values);
+
+      if (user.data.token) {
+        localStorage.setItem("token", user.data.token);
+        toast.success("User logged in successfully", { duration: 3000 });
+        const userData = await userProfile();
+        localStorage.setItem("user", JSON.stringify(userData.data));
+        navigate("/owners");
+      } else {
+        toast.error(user.message);
+      }
+    } catch (error) {
+      toast.error(error.response.data.message);
     }
   }
 
   return (
     <div className="bg-primary-400 min-h-screen py-10">
       <div className="w-[500px] bg-white py-10 mx-auto rounded-lg">
-        <img src="/img/logo.png" alt="rra logo" className="w-64 block mx-auto" />
+        <img
+          src="/img/logo.png"
+          alt="rra logo"
+          className="w-64 block mx-auto"
+        />
         <form className="mt-12 px-10" onSubmit={handleSubmit}>
           <div className="mb-10 flex flex-col gap-4">
             <h1 className="text-3xl font-bold text-black">Login</h1>

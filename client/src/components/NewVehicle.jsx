@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import PopupMolecule from "./Popup";
-import { createVehicle } from "../../../server/src/services/auth.service";
+import { createVehicle } from "../services/auth.service";
 
 export default function NewVehicle() {
   const [showPopup] = React.useState(true);

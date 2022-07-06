@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import PopupMolecule from "./Popup";
 import toast from "react-hot-toast";
-import { createOwner } from "../../../server/src/services/auth.service";
+import { createOwner } from "../services/auth.service";
 
 
 export default function NewCarOwner() {
