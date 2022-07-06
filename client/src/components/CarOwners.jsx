@@ -1,7 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Dashboard() {
+  const navigate = useNavigate();
+
   return (
     <div>
       <aside className="ml-[-100%] fixed z-10 top-0 pb-3 px-6 w-full flex flex-col justify-between h-screen border-r bg-white transition duration-300 md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%]">
@@ -65,7 +67,10 @@ export default function Dashboard() {
             <div className="bg-white p-8 rounded-md w-full">
               <div className=" flex items-center justify-end pb-6">
                 <div className="lg:ml-40 ml-10 space-x-8">
-                  <button className="bg-primary px-5 py-2 rounded-2xl text-white font-semibold tracking-wide cursor-pointer">
+                  <button
+                    onClick={() => navigate("/new-owner")}
+                    className="bg-primary px-5 py-2 rounded-2xl text-white font-semibold tracking-wide cursor-pointer"
+                  >
                     Register new vehicle owner
                   </button>
                 </div>

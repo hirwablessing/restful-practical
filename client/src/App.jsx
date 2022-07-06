@@ -6,6 +6,7 @@ import Signup from "./components/Signup";
 import Vehicles from "./components/Vehicles";
 import NewVehicle from "./components/NewVehicle";
 import LinkToOwner from "./components/LinkToOwner";
+import NewCarOwner from "./components/NewCarOwner";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/vehicles" element={<Vehicles />} />
         <Route path="/new-vehicle" element={<NewVehicle />} />
         <Route path="/link-vehicle" element={<LinkToOwner />} />
+        <Route path="/new-owner" element={<NewCarOwner />} />
       </Routes>
     </Router>
   );
