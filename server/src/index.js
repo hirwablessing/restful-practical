@@ -4,7 +4,6 @@ import { Swaggiffy } from 'swaggiffy'; // Import Swaggiffy for documentation
 import cors from 'cors';
 import db from './database';
 import authRoute from './routes/auth.routes';
-import candidacyRoute from './routes/candidacy.routes';
 import ownersRoute from './routes/owner.routes';
 
 const app = express();
@@ -22,7 +21,6 @@ app.get('/', (req, res) => {
 new Swaggiffy().setupExpress(app).swaggiffy(); // Setup Swaggiffy for documentation
 
 app.use('/api/v1/auth', authRoute);
-app.use('/api/v1/candidacy', candidacyRoute);
 app.use('/api/v1/owners', ownersRoute);
 
 
