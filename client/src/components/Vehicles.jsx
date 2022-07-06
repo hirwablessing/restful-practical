@@ -162,8 +162,8 @@ export default function Vehicles() {
                           </td>
                         </tr>
 
-                        {data.map((vehicle) => (
-                          <tr>
+                        {data?.map((vehicle) => (
+                          <tr key={vehicle._id}>
                             <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                               <div className="flex items-center">
                                 <div className="ml-3">

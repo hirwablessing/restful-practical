@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import PopupMolecule from "./Popup";
@@ -29,7 +29,7 @@ export default function NewVehicle() {
     if (user.data) {
       toast.success("Vehicle created successfully", { duration: 3000 });
 
-      navigate("/vehicles");
+      window.location.href = "/vehicles";
     } else {
       toast.error(user.message);
     }
@@ -56,7 +56,7 @@ export default function NewVehicle() {
             <input
               value={values.chasisNumber}
               onChange={handleChange}
-              name="nchasisNumberames"
+              name="chasisNumber"
               id="chasisNumber"
               placeholder="Enter Chasis Number"
               required
@@ -71,6 +71,7 @@ export default function NewVehicle() {
               Manufacture Company
             </label>
             <input
+              onChange={handleChange}
               value={values.manufacturer}
               name="manufacturer"
               id="manufacturer"
@@ -107,8 +108,6 @@ export default function NewVehicle() {
               onChange={handleChange}
               value={values.price}
               type="number"
-              max="16"
-              min="16"
               required
               name="price"
               id="price"

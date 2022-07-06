@@ -33,7 +33,7 @@ export default function NewCarOwner() {
         nationalId: "",
       });
 
-      navigate("/owners");
+      window.location.href = "/owners";
     } else {
       toast.error(user.message);
     }
@@ -58,6 +58,8 @@ export default function NewCarOwner() {
               Owner Names
             </label>
             <input
+              onChange={handleChange}
+              value={values.names}
               name="names"
               id="names"
               placeholder="John Doe"
@@ -73,6 +75,7 @@ export default function NewCarOwner() {
               owner address
             </label>
             <input
+              onChange={handleChange}
               name="address"
               id="address"
               placeholder="Kigali"
@@ -87,9 +90,8 @@ export default function NewCarOwner() {
               Owner national Id
             </label>
             <input
+              onChange={handleChange}
               type="number"
-              max="16"
-              min="16"
               required
               name="nationalId"
               id="nationalId"
