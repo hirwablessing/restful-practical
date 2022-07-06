@@ -53,7 +53,7 @@ async function userProfile(authDto) {
     //get current user profile
     try {
         const res = await fetch(`${BASE_URL}/auth/profile`, {
-            method: 'POST',
+            method: 'GET',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
