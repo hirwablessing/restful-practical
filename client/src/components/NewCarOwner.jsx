@@ -19,7 +19,7 @@ export default function NewCarOwner() {
               htmlFor="names"
               className="block text-sm font-semibold text-gray-900"
             >
-              Full names
+              Owner Names
             </label>
             <input
               name="names"
@@ -34,7 +34,7 @@ export default function NewCarOwner() {
               htmlFor="email"
               className="block text-sm font-semibold text-gray-900"
             >
-              Email address
+              owner email address
             </label>
             <input
               name="email"
@@ -45,26 +45,10 @@ export default function NewCarOwner() {
           </div>
           <div className="flex flex-col gap-2">
             <label
-              htmlFor="phone"
-              className="block text-sm font-semibold text-gray-900"
-            >
-              Phone number
-            </label>
-            <input
-              type="tel"
-              name="phone"
-              id="phone"
-              placeholder="0786090674"
-              required
-              className=" rounded-2xl border border-gray-300 text-gray-900 sm:text-sm outline-none focus:ring-blue-500 block w-[346px] p-2.5"
-            />
-          </div>
-          <div className="flex flex-col gap-2">
-            <label
               htmlFor="nationa_id"
               className="block text-sm font-semibold text-gray-900"
             >
-              National Id
+              Owner national Id
             </label>
             <input
               type="number"
@@ -82,14 +66,14 @@ export default function NewCarOwner() {
               htmlFor="phone"
               className="block text-sm font-semibold text-gray-900"
             >
-              Password
+              Owner phone number
             </label>
             <input
+              type="tel"
+              name="phone"
+              id="phone"
+              placeholder="0786090674"
               required
-              name="password"
-              id="password"
-              type="password"
-              placeholder="Enter password"
               className=" rounded-2xl border border-gray-300 text-gray-900 sm:text-sm outline-none focus:ring-blue-500 block w-[346px] p-2.5"
             />
           </div>
