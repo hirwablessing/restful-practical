@@ -17,6 +17,7 @@ import toast from "react-hot-toast";
 function App() {
   const PrivateRoute = ({ children }) => {
     const token = localStorage.getItem("token");
+    console.log("toen", token);
     if (!token) {
       toast.error("You must be logged in to access this page", {
         duration: 3000,
