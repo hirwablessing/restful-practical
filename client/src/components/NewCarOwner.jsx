@@ -47,7 +47,10 @@ export default function NewCarOwner() {
       onClose={() => navigate(-1)}
     >
       <div className="px-[10px]">
-        <form className="-mx-3 flex mt-4 flex-col gap-4" onSubmit={handleSubmit}>
+        <form
+          className="-mx-3 flex mt-4 flex-col gap-4"
+          onSubmit={handleSubmit}
+        >
           <div className="flex flex-col gap-2">
             <label
               htmlFor="names"
@@ -60,7 +63,7 @@ export default function NewCarOwner() {
               id="names"
               placeholder="John Doe"
               required
-              className=" rounded-2xl border border-[#DEE2E6]  text-gray-900 sm:text-sm outline-none focus:ring-blue-500 block w-[346px] p-2.5"
+              className=" rounded-xl border border-[#DEE2E6]  text-gray-900 sm:text-sm outline-none focus:ring-blue-500 block w-[346px] p-2.5"
             />
           </div>
           <div className="flex flex-col gap-2">
@@ -74,7 +77,7 @@ export default function NewCarOwner() {
               name="address"
               id="address"
               placeholder="Kigali"
-              className=" rounded-2xl border border-gray-300 text-gray-900 sm:text-sm outline-none focus:ring-blue-500 block w-[346px] p-2.5"
+              className=" rounded-xl border border-gray-300 text-gray-900 sm:text-sm outline-none focus:ring-blue-500 block w-[346px] p-2.5"
             />
           </div>
           <div className="flex flex-col gap-2">
@@ -92,7 +95,7 @@ export default function NewCarOwner() {
               name="nationalId"
               id="nationa_id"
               placeholder="1200456783452375"
-              className=" rounded-2xl border border-gray-300 text-gray-900 sm:text-sm outline-none focus:ring-blue-500 block w-[346px] p-2.5"
+              className=" rounded-xl border border-gray-300 text-gray-900 sm:text-sm outline-none focus:ring-blue-500 block w-[346px] p-2.5"
             />
           </div>
           <div className="flex flex-col gap-2">
@@ -103,18 +106,18 @@ export default function NewCarOwner() {
               Owner phone number
             </label>
             <input
-            onChange={handleChange}
+              onChange={handleChange}
               type="tel"
               name="phone"
               id="phone"
               placeholder="0786090674"
               required
-              className=" rounded-2xl border border-gray-300 text-gray-900 sm:text-sm outline-none focus:ring-blue-500 block w-[346px] p-2.5"
+              className=" rounded-xl border border-gray-300 text-gray-900 sm:text-sm outline-none focus:ring-blue-500 block w-[346px] p-2.5"
             />
           </div>
           <button
             type="submit"
-            className="rounded-2xl font-semibold flex justify-center items-center mt-2 w-full text-white bg-primary p-3 "
+            className="rounded-xl font-semibold flex justify-center items-center mt-2 w-full text-white bg-primary p-3 "
           >
             Register car owner
           </button>

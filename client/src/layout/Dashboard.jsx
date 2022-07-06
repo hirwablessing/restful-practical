@@ -1,5 +1,5 @@
 import React from 'react'
-import { Navigate } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import { Link } from 'react-router-dom'
 import toast from "react-hot-toast";
 
@@ -10,6 +10,7 @@ export default function Dashboard() {
     toast.error("You must be logged in to access this page", {
       duration: 3000,
     });
+
     return <Navigate to="/login" />;
   }
 

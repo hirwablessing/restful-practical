@@ -42,7 +42,10 @@ export default function NewVehicle() {
       onClose={() => navigate(-1)}
     >
       <div className="px-[10px]">
-        <form className="-mx-3 flex mt-4 flex-col gap-4" onSubmit={handleSubmit}>
+        <form
+          className="-mx-3 flex mt-4 flex-col gap-4"
+          onSubmit={handleSubmit}
+        >
           <div className="flex flex-col gap-2">
             <label
               htmlFor="chasisNumber"
@@ -51,12 +54,12 @@ export default function NewVehicle() {
               Chasis Number
             </label>
             <input
-            onChange={handleChange}
+              onChange={handleChange}
               name="nchasisNumberames"
               id="chasisNumber"
               placeholder="Enter Chasis Number"
               required
-              className=" rounded-2xl border border-[#DEE2E6]  text-gray-900 sm:text-sm outline-none focus:ring-blue-500 block w-[346px] p-2.5"
+              className=" rounded-xl border border-[#DEE2E6]  text-gray-900 sm:text-sm outline-none focus:ring-blue-500 block w-[346px] p-2.5"
             />
           </div>
           <div className="flex flex-col gap-2">
@@ -64,13 +67,13 @@ export default function NewVehicle() {
               htmlFor="manufacturer"
               className="block text-sm font-semibold text-gray-900"
             >
-              Manufacture Company 
+              Manufacture Company
             </label>
             <input
               name="manufacturer"
               id="manufacturer"
               placeholder="Enter Manufacture Company"
-              className=" rounded-2xl border border-gray-300 text-gray-900 sm:text-sm outline-none focus:ring-blue-500 block w-[346px] p-2.5"
+              className=" rounded-xl border border-gray-300 text-gray-900 sm:text-sm outline-none focus:ring-blue-500 block w-[346px] p-2.5"
             />
           </div>
           <div className="flex flex-col gap-2">
@@ -81,13 +84,13 @@ export default function NewVehicle() {
               Manufacture year
             </label>
             <input
-            onChange={handleChange}
+              onChange={handleChange}
               name="manufactureYear"
               id="phone"
               type="number"
               placeholder="enter manufacture year"
               required
-              className=" rounded-2xl border border-gray-300 text-gray-900 sm:text-sm outline-none focus:ring-blue-500 block w-[346px] p-2.5"
+              className=" rounded-xl border border-gray-300 text-gray-900 sm:text-sm outline-none focus:ring-blue-500 block w-[346px] p-2.5"
             />
           </div>
           <div className="flex flex-col gap-2">
@@ -98,7 +101,7 @@ export default function NewVehicle() {
               Vehicle Price
             </label>
             <input
-            onChange={handleChange}
+              onChange={handleChange}
               type="number"
               max="16"
               min="16"
@@ -106,7 +109,7 @@ export default function NewVehicle() {
               name="price"
               id="nationa_id"
               placeholder="enter manufacture price"
-              className=" rounded-2xl border border-gray-300 text-gray-900 sm:text-sm outline-none focus:ring-blue-500 block w-[346px] p-2.5"
+              className=" rounded-xl border border-gray-300 text-gray-900 sm:text-sm outline-none focus:ring-blue-500 block w-[346px] p-2.5"
             />
           </div>
           <div className="flex flex-col gap-2">
@@ -117,12 +120,12 @@ export default function NewVehicle() {
               Plate no
             </label>
             <input
-            onChange={handleChange}
+              onChange={handleChange}
               required
               name="plateNumber"
               id="password"
               placeholder="Enter plate number"
-              className=" rounded-2xl border border-gray-300 text-gray-900 sm:text-sm outline-none focus:ring-blue-500 block w-[346px] p-2.5"
+              className=" rounded-xl border border-gray-300 text-gray-900 sm:text-sm outline-none focus:ring-blue-500 block w-[346px] p-2.5"
             />
           </div>
           <div className="flex flex-col gap-2">
@@ -133,16 +136,16 @@ export default function NewVehicle() {
               Model Name
             </label>
             <input
-            onChange={handleChange}
+              onChange={handleChange}
               required
               name="model"
               placeholder="Enter model name "
-              className=" rounded-2xl border border-gray-300 text-gray-900 sm:text-sm outline-none focus:ring-blue-500 block w-[346px] p-2.5"
+              className=" rounded-xl border border-gray-300 text-gray-900 sm:text-sm outline-none focus:ring-blue-500 block w-[346px] p-2.5"
             />
           </div>
           <button
             type="submit"
-            className="rounded-2xl font-semibold flex justify-center items-center mt-2 w-full text-white bg-primary-600 p-3 "
+            className="rounded-xl font-semibold flex justify-center items-center mt-2 w-full text-white bg-primary-600 p-3 "
           >
             Register vehicle
           </button>
