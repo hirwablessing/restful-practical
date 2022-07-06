@@ -10,11 +10,13 @@ import usersRoute from './routes/user.routes';
 const app = express();
 
 app.use(cors())
-
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.send("Welcome to Voting App API")   
+    res.send({
+        message: 'Welcome to the Vohicle tracking system API',
+        client: "Rwanda Revenue Authority",
+    })
 });
 
 new Swaggiffy().setupExpress(app).swaggiffy(); // Setup Swaggiffy for documentation
@@ -26,5 +28,5 @@ app.use('/api/v1/users', usersRoute);
 
 const PORT = 5000;
 app.listen(PORT, () => {
-    console.log("App running on port ...  "+PORT);
+    console.log("App running on port ...  " + PORT);
 })

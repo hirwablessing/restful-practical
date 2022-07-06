@@ -2,11 +2,20 @@ import mongoose from "mongoose";
 import { registerSchema } from "swaggiffy";
 
 const Schema = mongoose.Schema({
-    name: {
+    names: {
         type: String,
         required: true,
     },
     email: {
+        type: String,
+        required: true,
+        unique: true,
+    },
+    phone: {
+        type: String,
+        required: true,
+    },
+    nationalId: {
         type: String,
         required: true,
         unique: true,
@@ -17,6 +26,6 @@ const Schema = mongoose.Schema({
     }
 });
 
-registerSchema('User',Schema, {orm: 'mongoose'});
-const User = mongoose.model("User", Schema);
-export default User;
+registerSchema('Admin', Schema, { orm: 'mongoose' });
+const Admin = mongoose.model("Admin", Schema);
+export default Admin;
