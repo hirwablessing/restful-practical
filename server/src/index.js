@@ -5,7 +5,7 @@ import cors from 'cors';
 import db from './database';
 import authRoute from './routes/auth.routes';
 import candidacyRoute from './routes/candidacy.routes';
-import usersRoute from './routes/user.routes';
+import ownersRoute from './routes/owner.routes';
 
 const app = express();
 
@@ -14,7 +14,7 @@ app.use(express.json());
 
 app.get('/', (req, res) => {
     res.send({
-        message: 'Welcome to the Vohicle tracking system API',
+        message: 'Welcome to the Vehicle tracking system API',
         client: "Rwanda Revenue Authority",
     })
 });
@@ -23,7 +23,7 @@ new Swaggiffy().setupExpress(app).swaggiffy(); // Setup Swaggiffy for documentat
 
 app.use('/api/v1/auth', authRoute);
 app.use('/api/v1/candidacy', candidacyRoute);
-app.use('/api/v1/users', usersRoute);
+app.use('/api/v1/owners', ownersRoute);
 
 
 const PORT = 5000;
