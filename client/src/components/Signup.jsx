@@ -1,7 +1,42 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
+import { Link, useNavigate } from "react-router-dom";
+import { register } from "../../../server/src/services/auth.service";
 
 export default function Signup() {
+  const navigate = useNavigate();
+  const [values, setValues] = React.useState({
+    email: "",
+    password: "",
+    names: "",
+    phone: "",
+    nationalId: "",
+  });
+
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setValues({ ...values, [name]: value });
+  }
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const user = await register(values);
+
+    if (user.data) {
+      toast.success("User created successfully", { duration: 3000 });
+      setValues({
+        email: "",
+        password: "",
+        names: "",
+        phone: "",
+        nationalId: "",
+      });
+
+      navigate("/");
+    } else {
+      toast.error(user.message);
+    }
+  }
   return (
     <div className="">
       <div className="w-full overflow-hidden rounded-3xl bg-white ">
@@ -14,7 +49,7 @@ export default function Signup() {
             </p>
           </div>
           <div className="w-full py-10 px-5  md:flex md:justify-center md:items-center  md:px-10">
-            <form className="md:ml-[50px]">
+            <form className="md:ml-[50px]" onSubmit={handleSubmit}>
               <div className="mb-10 flex flex-col gap-4">
                 <h1 className="text-3xl font-bold text-gray-900">Sign up</h1>
                 <p className="flex gap-1 text-base">
@@ -37,8 +72,8 @@ export default function Signup() {
                     Full names
                   </label>
                   <input
+                    onChange={handleChange}
                     name="names"
-                    id="names"
                     placeholder="John Doe"
                     required
                     className=" rounded-2xl border border-[#DEE2E6]  text-gray-900 sm:text-sm outline-none focus:ring-blue-500 block w-[346px] p-2.5"
@@ -53,8 +88,8 @@ export default function Signup() {
                     Email address
                   </label>
                   <input
+                    onChange={handleChange}
                     name="email"
-                    id="email"
                     placeholder="john@gmail.com"
                     className=" rounded-2xl border border-gray-300 text-gray-900 sm:text-sm outline-none focus:ring-blue-500 block w-[346px] p-2.5"
                   />
@@ -68,6 +103,7 @@ export default function Signup() {
                     Phone number
                   </label>
                   <input
+                    onChange={handleChange}
                     type="tel"
                     name="phone"
                     id="phone"
@@ -85,12 +121,9 @@ export default function Signup() {
                     National Id
                   </label>
                   <input
-                    type="number"
-                    max="16"
-                    min="16"
-                    required
-                    name="nationa_id"
-                    id="nationa_id"
+                    onChange={handleChange}
+                    // required
+                    name="nationalId"
                     placeholder="1200456783452375"
                     className=" rounded-2xl border border-gray-300 text-gray-900 sm:text-sm outline-none focus:ring-blue-500 block w-[346px] p-2.5"
                   />
@@ -104,6 +137,7 @@ export default function Signup() {
                     Password
                   </label>
                   <input
+                    onChange={handleChange}
                     required
                     name="password"
                     id="password"
@@ -114,12 +148,12 @@ export default function Signup() {
                 </div>
               </div>
 
-              <spam
+              <button
                 type="submit"
                 className="font-semibold rounded-2xl flex justify-center items-center mb-20 mt-4 w-full text-white bg-primary p-3 "
               >
                 SignUp
-              </spam>
+              </button>
             </form>
           </div>
         </div>

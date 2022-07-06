@@ -2,8 +2,8 @@
   "swaggerDefinition": {
     "swagger": "2.0",
     "info": {
-      "title": "voting-app-api",
-      "description": "voting-app-api API Documentation",
+      "title": "Vehicle mis",
+      "description": "Vehicle mis API Documentation",
       "termsOfService": "http://swagger.io/terms/",
       "contact": {
         "name": "API Support",
@@ -771,11 +771,11 @@
           },
           "updatedAt": {
             "type": "string",
-            "example": "7/6/2022, 12:21:08 PM"
+            "example": "7/6/2022, 1:36:47 PM"
           },
           "createdAt": {
             "type": "string",
-            "example": "7/6/2022, 12:21:08 PM"
+            "example": "7/6/2022, 1:36:47 PM"
           }
         }
       },
@@ -825,11 +825,11 @@
           },
           "updatedAt": {
             "type": "string",
-            "example": "7/6/2022, 12:21:08 PM"
+            "example": "7/6/2022, 1:36:47 PM"
           },
           "createdAt": {
             "type": "string",
-            "example": "7/6/2022, 12:21:08 PM"
+            "example": "7/6/2022, 1:36:47 PM"
           }
         }
       },
@@ -876,11 +876,11 @@
           },
           "updatedAt": {
             "type": "string",
-            "example": "7/6/2022, 12:21:08 PM"
+            "example": "7/6/2022, 1:36:47 PM"
           },
           "createdAt": {
             "type": "string",
-            "example": "7/6/2022, 12:21:08 PM"
+            "example": "7/6/2022, 1:36:47 PM"
           }
         }
       }
