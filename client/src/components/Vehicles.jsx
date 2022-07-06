@@ -118,6 +118,50 @@ export default function Vehicles() {
                         </tr>
                       </thead>
                       <tbody>
+                        <tr>
+                          <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                            <div className="flex items-center">
+                              <div className="ml-3">
+                                <p className="text-gray-900 whitespace-no-wrap">
+                                  AN12334
+                                </p>
+                              </div>
+                            </div>
+                          </td>
+                          <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                            <p className="text-gray-900 whitespace-no-wrap">
+                              Toyota
+                            </p>
+                          </td>
+                          <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                            <p className="text-gray-900 whitespace-no-wrap">
+                              2014
+                            </p>
+                          </td>
+                          <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                            <p className="text-gray-900 whitespace-no-wrap">
+                              13 Million
+                            </p>
+                          </td>
+                          <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                            <p className="text-gray-900 whitespace-no-wrap">
+                              RAC234M
+                            </p>
+                          </td>
+
+                          <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                            <p className="text-gray-900 whitespace-no-wrap">
+                              Toyota RAVA 4
+                            </p>
+                          </td>
+
+                          <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                            <p className="text-gray-900 whitespace-no-wrap">
+                              Kalisa Emmanuel
+                            </p>
+                          </td>
+                        </tr>
+
                         {data?.map((vehicle) => (
                           <tr key={vehicle._id}>
                             <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
