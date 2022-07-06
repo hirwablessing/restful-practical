@@ -87,7 +87,7 @@ async function userProfile(authDto) {
 async function createOwner(ownerDto) {
     //get current user profile
     try {
-        const res = await fetch(`${BASE_URL}/owners`, {
+        const res = await fetch(`${BASE_URL}/owners/owner`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -127,7 +127,7 @@ async function createVehicle(vehicleDto) {
 async function getOwners() {
     //get current user profile
     try {
-        const res = await fetch(`${BASE_URL}/owners`, {
+        const res = await fetch(`${BASE_URL}/owners/owner`, {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('token')}`
