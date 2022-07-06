@@ -5,7 +5,7 @@ export default function Vehicles() {
   const navigate = useNavigate();
   return (
     <div>
-      <aside className="ml-[-100%] fixed z-10 top-0 pb-3 px-6 w-full flex flex-col justify-between h-screen border-r bg-white transition duration-300 md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%]">
+      <aside className="ml-[-100%] bg-primary-400 fixed z-10 top-0 pb-3 px-6 w-full flex flex-col justify-between h-screen border-r transition duration-300 md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%]">
         <div>
           <div className="-mx-6 px-6 py-4">
             <a href="#" title="home">
@@ -17,17 +17,17 @@ export default function Vehicles() {
             <Link
               to={"/owners"}
               aria-label="dashboard"
-              className="relative px-4 py-3 flex items-center space-x-4 rounded-xl "
+              className="relative px-4 py-3 flex items-center space-x-4 rounded-xl text-primary-600 "
             >
-              <img src="/icons/home-gray.svg" />
-              <span className="-mr-1 text-gray-600">Car owners</span>
+              <img src="/icons/user-green.svg" />
+              <span className="-mr-1">Car owners</span>
             </Link>
 
             <Link
               to={"/vehicles"}
-              className="px-4 py-3 flex items-center space-x-4 rounded-md text-primary group"
+              className="px-4 py-3 flex items-center space-x-4 rounded-md text-primary-600 group"
             >
-              <img src="/icons/vehicle-blue.svg" />
+              <img src="/icons/vehicle-green.svg" />
               <span className="group-hover:text-gray-700">Vehicle</span>
             </Link>
           </ul>
@@ -46,7 +46,7 @@ export default function Vehicles() {
             <div className="flex space-x-4">
               <button
                 aria-label="chat"
-                className="w-10 h-10  flex items-center justify-center rounded-xl border bg-gray-100 focus:bg-gray-100 active:bg-gray-200"
+                className="w-10 h-10  flex items-center justify-center rounded-xl border bg-primary-500 focus:bg-primary-500 active:bg-gray-200"
               >
                 <img src="/icons/logout.svg" alt="tailus logo" />
               </button>
@@ -68,7 +68,7 @@ export default function Vehicles() {
                 <div className="lg:ml-40 ml-10 space-x-8">
                   <button
                     onClick={() => navigate("/new-vehicle")}
-                    className="bg-primary px-5 py-2 rounded-2xl text-white font-semibold tracking-wide cursor-pointer"
+                    className="bg-primary-600 px-5 py-2 rounded-xl text-white font-semibold tracking-wide cursor-pointer"
                   >
                     Register vehicle
                   </button>
@@ -80,27 +80,27 @@ export default function Vehicles() {
                     <table className="min-w-full leading-normal">
                       <thead>
                         <tr>
-                          <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                          <th className="px-5 py-3 border-b-2 text-primary-600 border-primary-600 bg-primary-500 text-left text-xs font-semibold  uppercase tracking-wider">
                             CHASSIS NO.
                           </th>
-                          <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                          <th className="px-5 py-3 border-b-2 text-primary-600 border-primary-600 bg-primary-500 text-left text-xs font-semibold  uppercase tracking-wider">
                             MANUFACTURE CO...
                           </th>
-                          <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                          <th className="px-5 py-3 border-b-2 text-primary-600 border-primary-600 bg-primary-500 text-left text-xs font-semibold  uppercase tracking-wider">
                             YEAR
                           </th>
-                          <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                          <th className="px-5 py-3 border-b-2 text-primary-600 border-primary-600 bg-primary-500 text-left text-xs font-semibold  uppercase tracking-wider">
                             vehicle price
                           </th>
-                          <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                          <th className="px-5 py-3 border-b-2 text-primary-600 border-primary-600 bg-primary-500 text-left text-xs font-semibold  uppercase tracking-wider">
                             plate no
                           </th>
 
-                          <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                          <th className="px-5 py-3 border-b-2 text-primary-600 border-primary-600 bg-primary-500 text-left text-xs font-semibold  uppercase tracking-wider">
                             Model name
                           </th>
 
-                          <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                          <th className="px-5 py-3 border-b-2 text-primary-600 border-primary-600 bg-primary-500 text-left text-xs font-semibold  uppercase tracking-wider">
                             Owner
                           </th>
                         </tr>
@@ -191,7 +191,7 @@ export default function Vehicles() {
                             <p className="text-gray-900 whitespace-no-wrap">
                               <Link
                                 to={"/link-vehicle"}
-                                className="tex-sm text-primary underline"
+                                className="tex-sm text-primary-600 underline"
                               >
                                 Link owner
                               </Link>
@@ -207,11 +207,11 @@ export default function Vehicles() {
                       Showing 1 to 4 of 50 Entries
                     </span>
                     <div className="inline-flex mt-2 xs:mt-0">
-                      <button className="text-sm text-lightblue transition duration-150 hover:bg-primary bg-primary font-semibold py-2 px-4 rounded-l">
+                      <button className="text-sm text-primary-400 transition duration-150 hover:bg-primary-600 bg-primary-600 font-semibold py-2 px-4 rounded-l">
                         Prev
                       </button>
                       &nbsp; &nbsp;
-                      <button className="text-sm text-lightblue transition duration-150 hover:bg-primary bg-primary font-semibold py-2 px-4 rounded-r">
+                      <button className="text-sm text-primary-400 transition duration-150 hover:bg-primary-600 bg-primary-600 font-semibold py-2 px-4 rounded-r">
                         Next
                       </button>
                     </div>

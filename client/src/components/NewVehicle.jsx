@@ -95,7 +95,7 @@ export default function NewVehicle() {
           </div>
           <button
             type="submit"
-            className="rounded-2xl font-semibold flex justify-center items-center mt-2 w-full text-white bg-primary p-3 "
+            className="rounded-2xl font-semibold flex justify-center items-center mt-2 w-full text-white bg-primary-600 p-3 "
           >
             Register vehicle
           </button>

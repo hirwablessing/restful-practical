@@ -23,7 +23,7 @@ export default function LinkToOwner() {
             </label>
             <select
               id="owner"
-              className="bg-transparent border border-[#DEE2E6] text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary outline-none block w-full p-2.5 px-4 font-semibold"
+              className="bg-transparent border border-[#DEE2E6] text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 outline-none block w-full p-2.5 px-4 font-semibold"
             >
               <option selected>Select vehicle owner</option>
               <option value="US">KAMARI VINCENT</option>
@@ -34,7 +34,7 @@ export default function LinkToOwner() {
 
             <button
               type="submit"
-              className="rounded-2xl font-semibold flex justify-center items-center mt-2 w-full text-white bg-primary p-3 "
+              className="rounded-2xl font-semibold flex justify-center items-center mt-2 w-full text-white bg-primary-600 p-3 "
             >
               Register vehicle
             </button>

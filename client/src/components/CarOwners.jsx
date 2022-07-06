@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function Dashboard() {
   return (
     <div>
-      <aside className="ml-[-100%] fixed z-10 top-0 pb-3 px-6 w-full flex flex-col justify-between h-screen border-r bg-white transition duration-300 md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%]">
+      <aside className="ml-[-100%] fixed z-10 top-0 pb-3 px-6 w-full flex flex-col justify-between h-screen border-r bg-primary-400 transition duration-300 md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%]">
         <div>
           <div className="-mx-6 px-6 py-4">
             <a href="#" title="home">
@@ -16,17 +16,17 @@ export default function Dashboard() {
             <Link
               to={"/owners"}
               aria-label="dashboard"
-              className="relative px-4 py-3 flex items-center space-x-4 rounded-xl text-primary "
+              className="relative px-4 py-3 flex items-center space-x-4 rounded-xl text-primary-600 "
             >
-              <img src="/icons/home.svg" />
+              <img src="/icons/user-green.svg" />
               <span className="-mr-1">Car owners</span>
             </Link>
 
             <Link
               to={"/vehicles"}
-              className="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group"
+              className="px-4 py-3 flex items-center space-x-4 rounded-md text-primary-600 group"
             >
-              <img src="/icons/vehicle.svg" />
+              <img src="/icons/vehicle-green.svg" />
               <span className="group-hover:text-gray-700">Vehicle</span>
             </Link>
           </ul>
@@ -65,7 +65,7 @@ export default function Dashboard() {
             <div className="bg-white p-8 rounded-md w-full">
               <div className=" flex items-center justify-end pb-6">
                 <div className="lg:ml-40 ml-10 space-x-8">
-                  <button className="bg-primary px-5 py-2 rounded-2xl text-white font-semibold tracking-wide cursor-pointer">
+                  <button className="bg-primary-600 px-5 py-2 rounded-xl text-white font-semibold tracking-wide cursor-pointer">
                     Register new vehicle owner
                   </button>
                 </div>
@@ -76,19 +76,19 @@ export default function Dashboard() {
                     <table className="min-w-full leading-normal">
                       <thead>
                         <tr>
-                          <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                          <th className="px-5 py-3 border-b-2 bg-primary-500 border-primary-600  text-primary-600 text-left text-xs font-semibold uppercase tracking-wider">
                             Names
                           </th>
-                          <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                          <th className="px-5 py-3 border-b-2 bg-primary-500 border-primary-600  text-primary-600 text-left text-xs font-semibold uppercase tracking-wider">
                             Email Address
                           </th>
-                          <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                          <th className="px-5 py-3 border-b-2 bg-primary-500 border-primary-600  text-primary-600 text-left text-xs font-semibold uppercase tracking-wider">
                             NATIONAL ID
                           </th>
-                          <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                          <th className="px-5 py-3 border-b-2 bg-primary-500 border-primary-600  text-primary-600 text-left text-xs font-semibold uppercase tracking-wider">
                             PHONE NUMBER
                           </th>
-                          <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                          <th className="px-5 py-3 border-b-2 bg-primary-500 border-primary-600  text-primary-600 text-left text-xs font-semibold uppercase tracking-wider">
                             ACTIONS
                           </th>
                         </tr>
@@ -170,11 +170,11 @@ export default function Dashboard() {
                       Showing 1 to 4 of 50 Entries
                     </span>
                     <div className="inline-flex mt-2 xs:mt-0">
-                      <button className="text-sm text-lightblue transition duration-150 hover:bg-primary bg-primary font-semibold py-2 px-4 rounded-l">
+                      <button className="text-sm text-primary-400 transition duration-150 hover:bg-primary-600 bg-primary-600 font-semibold py-2 px-4 rounded-l">
                         Prev
                       </button>
                       &nbsp; &nbsp;
-                      <button className="text-sm text-lightblue transition duration-150 hover:bg-primary bg-primary font-semibold py-2 px-4 rounded-r">
+                      <button className="text-sm text-primary-400 transition duration-150 hover:bg-primary-600 bg-primary-600 font-semibold py-2 px-4 rounded-r">
                         Next
                       </button>
                     </div>

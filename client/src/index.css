@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 input:focus {
-  @apply border-primary border-spacing-2;
+  @apply border-primary-600 border-spacing-2;
 }
 
 ::-webkit-input-placeholder {

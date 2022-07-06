@@ -5,7 +5,7 @@ import "../styles/login.css";
 
 export default function Login() {
   return (
-    <div className="bg-lightblue min-h-screen py-10">
+    <div className="bg-primary-400 min-h-screen py-10">
       <div className="w-[500px] bg-white py-10 mx-auto rounded-lg">
         <img src="/img/logo.png" alt="rra logo" className="w-64 block mx-auto" />
         <form className="mt-12 px-10">
@@ -15,7 +15,7 @@ export default function Login() {
               <span className="text-[#ADB5BD] font-semibold">
                 Already have an account?
               </span>
-              <Link className="text-primary font-semibold" to="/signup">
+              <Link className="text-primary-600 font-semibold" to="/signup">
                 Sign up
               </Link>
             </p>
@@ -57,7 +57,7 @@ export default function Login() {
 
           <button
             type="submit"
-            className="mt-6 mb-4 rounded-xl font-semibold flex justify-center items-center w-full text-white bg-primary p-3 "
+            className="mt-6 mb-4 rounded-xl font-semibold flex justify-center items-center w-full text-white bg-primary-600 p-3 "
           >
             Login
           </button>

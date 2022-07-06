@@ -20,7 +20,7 @@ export default function PopupMolecule({
         <div
           className={`flex pb-2 ${title ? "justify-between" : "justify-end"}`}
         >
-          {title && <h2 className="font-semibold text-primary">{title}</h2>}
+          {title && <h2 className="font-semibold text-primary-600">{title}</h2>}
 
           <button className="close outline-none" onClick={onClose}>
             <svg
