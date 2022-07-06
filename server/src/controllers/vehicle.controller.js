@@ -9,6 +9,11 @@ export const registerVehicle = async (req, res) => {
         message: error.details[0].message
     });
 
+    //validate plateNumber to be of format RA-X-NNN-X
+
+    
+
+
     const {
         chasisNumber,
         manufacturer,
@@ -99,7 +104,7 @@ function validateVehicle(vh) {
         model: Joi.string().min(4).max(30).required(),
         price: Joi.number().min(1).max(1000000000).required(),
         color: Joi.string().min(4).max(30),
-        plateNumber: Joi.string().min(4).max(30).required(),
+        plateNumber: Joi.string().min(4).max(7).required(),
         ownerId: Joi.string().min(4).max(30),
     })
 
