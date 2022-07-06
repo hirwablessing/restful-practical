@@ -58,7 +58,6 @@ export default function NewCarOwner() {
               Owner Names
             </label>
             <input
-              value={values.names}
               name="names"
               id="names"
               placeholder="John Doe"
@@ -74,7 +73,6 @@ export default function NewCarOwner() {
               owner address
             </label>
             <input
-              value={values.address}
               name="address"
               id="address"
               placeholder="Kigali"
@@ -89,7 +87,6 @@ export default function NewCarOwner() {
               Owner national Id
             </label>
             <input
-              value={values.nationalId}
               type="number"
               max="16"
               min="16"
@@ -108,7 +105,6 @@ export default function NewCarOwner() {
               Owner phone number
             </label>
             <input
-              value={values.phone}
               onChange={handleChange}
               type="tel"
               name="phone"
