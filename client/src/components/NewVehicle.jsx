@@ -1,10 +1,39 @@
-import React from "react";
+import React, {useState} from "react";
+import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import PopupMolecule from "./Popup";
+import { createVehicle } from "../../../server/src/services/auth.service";
 
 export default function NewVehicle() {
-  const [showPopup, setShowPopup] = React.useState(true);
+  const [showPopup] = React.useState(true);
   const navigate = useNavigate();
+
+  const [values, setValues] = React.useState({
+    chasisNumber: "",
+    manufacturer: "",
+    manufactureYear: 0,
+    model: "",
+    price: 0,
+    plateNumber: ""
+  });
+
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setValues({ ...values, [name]: value });
+  }
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const user = await createVehicle(values);
+
+    if (user.data) {
+      toast.success("Vehicle created successfully", { duration: 3000 });
+
+      navigate("/vehicles");
+    } else {
+      toast.error(user.message);
+    }
+  }
 
   return (
     <PopupMolecule
@@ -13,33 +42,34 @@ export default function NewVehicle() {
       onClose={() => navigate(-1)}
     >
       <div className="px-[10px]">
-        <div className="-mx-3 flex mt-4 flex-col gap-4">
+        <form className="-mx-3 flex mt-4 flex-col gap-4" onSubmit={handleSubmit}>
           <div className="flex flex-col gap-2">
             <label
-              htmlFor="names"
+              htmlFor="chasisNumber"
               className="block text-sm font-semibold text-gray-900"
             >
-              Full names
+              Chasis Number
             </label>
             <input
-              name="names"
-              id="names"
-              placeholder="John Doe"
+            onChange={handleChange}
+              name="nchasisNumberames"
+              id="chasisNumber"
+              placeholder="Enter Chasis Number"
               required
               className=" rounded-2xl border border-[#DEE2E6]  text-gray-900 sm:text-sm outline-none focus:ring-blue-500 block w-[346px] p-2.5"
             />
           </div>
           <div className="flex flex-col gap-2">
             <label
-              htmlFor="email"
+              htmlFor="manufacturer"
               className="block text-sm font-semibold text-gray-900"
             >
-              Email address
+              Manufacture Company 
             </label>
             <input
-              name="email"
-              id="email"
-              placeholder="john@gmail.com"
+              name="manufacturer"
+              id="manufacturer"
+              placeholder="Enter Manufacture Company"
               className=" rounded-2xl border border-gray-300 text-gray-900 sm:text-sm outline-none focus:ring-blue-500 block w-[346px] p-2.5"
             />
           </div>
@@ -48,32 +78,34 @@ export default function NewVehicle() {
               htmlFor="phone"
               className="block text-sm font-semibold text-gray-900"
             >
-              Phone number
+              Manufacture year
             </label>
             <input
-              type="tel"
-              name="phone"
+            onChange={handleChange}
+              name="manufactureYear"
               id="phone"
-              placeholder="0786090674"
+              type="number"
+              placeholder="enter manufacture year"
               required
               className=" rounded-2xl border border-gray-300 text-gray-900 sm:text-sm outline-none focus:ring-blue-500 block w-[346px] p-2.5"
             />
           </div>
           <div className="flex flex-col gap-2">
             <label
-              htmlFor="nationa_id"
+              htmlFor="price"
               className="block text-sm font-semibold text-gray-900"
             >
-              National Id
+              Vehicle Price
             </label>
             <input
+            onChange={handleChange}
               type="number"
               max="16"
               min="16"
               required
-              name="nationa_id"
+              name="price"
               id="nationa_id"
-              placeholder="1200456783452375"
+              placeholder="enter manufacture price"
               className=" rounded-2xl border border-gray-300 text-gray-900 sm:text-sm outline-none focus:ring-blue-500 block w-[346px] p-2.5"
             />
           </div>
@@ -82,14 +114,29 @@ export default function NewVehicle() {
               htmlFor="phone"
               className="block text-sm font-semibold text-gray-900"
             >
-              Password
+              Plate no
             </label>
             <input
+            onChange={handleChange}
               required
-              name="password"
+              name="plateNumber"
               id="password"
-              type="password"
-              placeholder="Enter password"
+              placeholder="Enter plate number"
+              className=" rounded-2xl border border-gray-300 text-gray-900 sm:text-sm outline-none focus:ring-blue-500 block w-[346px] p-2.5"
+            />
+          </div>
+          <div className="flex flex-col gap-2">
+            <label
+              htmlFor="model"
+              className="block text-sm font-semibold text-gray-900"
+            >
+              Model Name
+            </label>
+            <input
+            onChange={handleChange}
+              required
+              name="model"
+              placeholder="Enter model name "
               className=" rounded-2xl border border-gray-300 text-gray-900 sm:text-sm outline-none focus:ring-blue-500 block w-[346px] p-2.5"
             />
           </div>
@@ -99,7 +146,7 @@ export default function NewVehicle() {
           >
             Register vehicle
           </button>
-        </div>
+        </form>
       </div>
     </PopupMolecule>
   );

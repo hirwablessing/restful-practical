@@ -1,7 +1,22 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, {useEffect, useState} from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { getOwners } from "../../../server/src/services/auth.service";
 
 export default function Dashboard() {
+  const [data, setData] = useState([]);
+
+  useEffect(()=>{
+    async function fetchData(){
+      const owners = await getOwners();
+      setData(owners.data);
+    }
+
+    fetchData();
+  },[])
+
+
+  const navigate = useNavigate();
+
   return (
     <div className="px-6 pt-6 2xl:container">
       {/* grid gap-6 md:grid-cols-2 lg:grid-cols-3 */}
@@ -9,9 +24,11 @@ export default function Dashboard() {
         <div className="bg-white p-8 rounded-md w-full">
           <div className=" flex items-center justify-end pb-6">
             <div className="lg:ml-40 ml-10 space-x-8">
-              <button className="bg-primary-600 px-5 py-2 rounded-xl text-white font-semibold tracking-wide cursor-pointer">
-                Register new vehicle owner
-              </button>
+              <Link to="new-owner">
+                <button className="bg-primary-600 px-5 py-2 rounded-xl text-white font-semibold tracking-wide cursor-pointer">
+                  Register new vehicle owner
+                </button>
+              </Link>
             </div>
           </div>
           <div>
@@ -43,14 +60,14 @@ export default function Dashboard() {
                         <div className="flex items-center">
                           <div className="ml-3">
                             <p className="text-gray-900 whitespace-no-wrap">
-                              Dana Moore
+                              jacques Twizeyimana
                             </p>
                           </div>
                         </div>
                       </td>
                       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                         <p className="text-gray-900 whitespace-no-wrap">
-                          emmy@gmail.com
+                          jacquest@gmail.com
                         </p>
                       </td>
                       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
@@ -65,46 +82,46 @@ export default function Dashboard() {
                       </td>
                       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                         <div className="flex gap-4">
-                          <span>icon</span>
-
-                          <span>icon</span>
+                          <span>edit</span>
+                          <span>delete</span>
                         </div>
                       </td>
                     </tr>
 
-                    <tr>
+                   {data.map(owner => (  
+                   <tr>
                       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                         <div className="flex items-center">
                           <div className="ml-3">
                             <p className="text-gray-900 whitespace-no-wrap">
-                              Dana Moore
+                              {owner.names}
                             </p>
                           </div>
                         </div>
                       </td>
                       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                         <p className="text-gray-900 whitespace-no-wrap">
-                          emmy@gmail.com
+                          {owner.email}
                         </p>
                       </td>
                       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                         <p className="text-gray-900 whitespace-no-wrap">
-                          1199234885080378
+                          {owner.nationalId}
                         </p>
                       </td>
                       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                         <p className="text-gray-900 whitespace-no-wrap">
-                          0788346262
+                          {owner.phone}
                         </p>
                       </td>
                       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                         <div className="flex gap-4">
-                          <span>icon</span>
-
-                          <span>icon</span>
+                          <span>edit </span>
+                          <span>delete</span>
                         </div>
                       </td>
                     </tr>
+                  ))}
                   </tbody>
                 </table>
               </div>

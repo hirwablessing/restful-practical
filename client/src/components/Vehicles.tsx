@@ -1,7 +1,21 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { getVehicles } from "../../../server/src/services/auth.service";
 
 export default function Vehicles() {
+  const [data, setData] = useState([]);
+
+  useEffect(()=>{
+    async function fetchData(){
+      const owners = await getVehicles();
+      setData(owners.data);
+    }
+
+    fetchData();
+  },[])
+
+
+
   const navigate = useNavigate();
   return (
     <div className="px-6 pt-6 2xl:container">
@@ -10,12 +24,14 @@ export default function Vehicles() {
         <div className="bg-white p-8 rounded-md w-full">
           <div className=" flex items-center justify-end pb-6">
             <div className="lg:ml-40 ml-10 space-x-8">
-              <button
-                onClick={() => navigate("/new-vehicle")}
-                className="bg-primary-600 px-5 py-2 rounded-xl text-white font-semibold tracking-wide cursor-pointer"
-              >
-                Register vehicle
-              </button>
+              <Link to="new-vehicle">
+                <button
+                  onClick={() => navigate("/new-vehicle")}
+                  className="bg-primary-600 px-5 py-2 rounded-xl text-white font-semibold tracking-wide cursor-pointer"
+                >
+                  Register vehicle
+                </button>
+              </Link>
             </div>
           </div>
           <div>
@@ -94,40 +110,41 @@ export default function Vehicles() {
                       </td>
                     </tr>
 
-                    <tr>
+                    {data.map(vh => (
+                      <tr key={vh._id}>
                       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                         <div className="flex items-center">
                           <div className="ml-3">
                             <p className="text-gray-900 whitespace-no-wrap">
-                              AF12334
+                              {vh.chasisNumber}
                             </p>
                           </div>
                         </div>
                       </td>
                       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                         <p className="text-gray-900 whitespace-no-wrap">
-                          BMW
+                          {vh.manufacturer}
                         </p>
                       </td>
                       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                         <p className="text-gray-900 whitespace-no-wrap">
-                          2014
+                          {vh.manufactureYear}
                         </p>
                       </td>
                       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                         <p className="text-gray-900 whitespace-no-wrap">
-                          13 Million
+                         {vh.price}
                         </p>
                       </td>
                       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                         <p className="text-gray-900 whitespace-no-wrap">
-                          RAC234M
+                          {vh.plateNumber}
                         </p>
                       </td>
 
                       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                         <p className="text-gray-900 whitespace-no-wrap">
-                          Toyota RAVA 4
+                          {vh.model}
                         </p>
                       </td>
 
@@ -142,13 +159,14 @@ export default function Vehicles() {
                         </p>
                       </td>
                     </tr>
+                    ))}
                   </tbody>
                 </table>
               </div>
 
               <div className="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between">
                 <span className="text-xs xs:text-sm text-gray-900">
-                  Showing 1 to 4 of 50 Entries
+                  Showing 1 to 10 of {data.length} Entries
                 </span>
                 <div className="inline-flex mt-2 xs:mt-0">
                   <button className="text-sm text-primary-400 transition duration-150 hover:bg-primary-600 bg-primary-600 font-semibold py-2 px-4 rounded-l">
