@@ -1,6 +1,7 @@
 import Admin from '../database/models/admin.model';
 import { hashPassword, comparePassword } from '../utils/hash-password';
 import { sign } from 'jsonwebtoken';
+import Joi from 'joi';
 
 export const signup = async (req, res) => {
     const { error } = validateUser(req.body);

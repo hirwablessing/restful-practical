@@ -1,5 +1,6 @@
 import Vehicle from '../database/models/vehicle.model';
 import Admin from '../database/models/admin.model';
+import Joi from 'joi';
 
 export const registerVehicle = async (req, res) => {
     const { error } = validateVehicle(req.body);
@@ -91,7 +92,7 @@ export const deleteVehicle = async (req, res) => {
 
 
 function validateVehicle(vh) {
-    const schema = {
+    const schema = Joi.object({
         chasisNumber: Joi.string().min(4).max(30).required(),
         manufacturer: Joi.string().min(4).max(30).required(),
         manufactureYear: Joi.number().min(1900).max(2020).required(),
@@ -100,7 +101,7 @@ function validateVehicle(vh) {
         color: Joi.string().min(4).max(30),
         plateNumber: Joi.string().min(4).max(30).required(),
         ownerId: Joi.string().min(4).max(30),
-    };
-    return Joi.validate(vh, schema);
+    })
 
+    return schema.validate(vh);
 }

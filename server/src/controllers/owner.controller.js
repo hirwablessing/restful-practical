@@ -59,11 +59,11 @@ export const deleteOwner = async (req, res) => {
 
 //validate Owner
 function validateOwner(owner) {
-    const schema = {
+    const schema = Joi.object({
         names: Joi.string().min(3).max(50).required(),
         phone: Joi.string().min(10).max(12).required(),
         nationalId: Joi.string().min(16).max(16).required(),
         address: Joi.string().min(3).max(50).required(),
-    };
-    return Joi.validate(owner, schema);
+    });
+    return schema.validate(owner);
 }
