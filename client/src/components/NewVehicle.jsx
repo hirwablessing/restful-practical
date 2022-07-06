@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import PopupMolecule from "./Popup";
@@ -8,13 +8,13 @@ export default function NewVehicle() {
   const [showPopup] = React.useState(true);
   const navigate = useNavigate();
 
-  const [values, setValues] = React.useState({
+  const [values, setValues] = useState({
     chasisNumber: "",
     manufacturer: "",
     manufactureYear: 0,
     model: "",
     price: 0,
-    plateNumber: ""
+    plateNumber: "",
   });
 
   function handleChange(event) {
@@ -42,7 +42,10 @@ export default function NewVehicle() {
       onClose={() => navigate(-1)}
     >
       <div className="px-[10px]">
-        <form className="-mx-3 flex mt-4 flex-col gap-4" onSubmit={handleSubmit}>
+        <form
+          className="-mx-3 flex mt-4 flex-col gap-4"
+          onSubmit={handleSubmit}
+        >
           <div className="flex flex-col gap-2">
             <label
               htmlFor="chasisNumber"
@@ -51,7 +54,8 @@ export default function NewVehicle() {
               Chasis Number
             </label>
             <input
-            onChange={handleChange}
+              value={values.chasisNumber}
+              onChange={handleChange}
               name="nchasisNumberames"
               id="chasisNumber"
               placeholder="Enter Chasis Number"
@@ -64,9 +68,10 @@ export default function NewVehicle() {
               htmlFor="manufacturer"
               className="block text-sm font-semibold text-gray-900"
             >
-              Manufacture Company 
+              Manufacture Company
             </label>
             <input
+              value={values.manufacturer}
               name="manufacturer"
               id="manufacturer"
               placeholder="Enter Manufacture Company"
@@ -75,15 +80,16 @@ export default function NewVehicle() {
           </div>
           <div className="flex flex-col gap-2">
             <label
-              htmlFor="phone"
+              htmlFor="manufactureYear"
               className="block text-sm font-semibold text-gray-900"
             >
               Manufacture year
             </label>
             <input
-            onChange={handleChange}
+              value={values.manufactureYear}
+              onChange={handleChange}
               name="manufactureYear"
-              id="phone"
+              id="manufactureYear"
               type="number"
               placeholder="enter manufacture year"
               required
@@ -98,29 +104,31 @@ export default function NewVehicle() {
               Vehicle Price
             </label>
             <input
-            onChange={handleChange}
+              onChange={handleChange}
+              value={values.price}
               type="number"
               max="16"
               min="16"
               required
               name="price"
-              id="nationa_id"
+              id="price"
               placeholder="enter manufacture price"
               className=" rounded-2xl border border-gray-300 text-gray-900 sm:text-sm outline-none focus:ring-blue-500 block w-[346px] p-2.5"
             />
           </div>
           <div className="flex flex-col gap-2">
             <label
-              htmlFor="phone"
+              htmlFor="plateNumber"
               className="block text-sm font-semibold text-gray-900"
             >
               Plate no
             </label>
             <input
-            onChange={handleChange}
+              value={values.plateNumber}
+              onChange={handleChange}
               required
               name="plateNumber"
-              id="password"
+              id="plateNumber"
               placeholder="Enter plate number"
               className=" rounded-2xl border border-gray-300 text-gray-900 sm:text-sm outline-none focus:ring-blue-500 block w-[346px] p-2.5"
             />
@@ -133,7 +141,8 @@ export default function NewVehicle() {
               Model Name
             </label>
             <input
-            onChange={handleChange}
+              value={values.model}
+              onChange={handleChange}
               required
               name="model"
               placeholder="Enter model name "

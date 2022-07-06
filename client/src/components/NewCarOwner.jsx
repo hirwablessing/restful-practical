@@ -4,7 +4,6 @@ import PopupMolecule from "./Popup";
 import toast from "react-hot-toast";
 import { createOwner } from "../../../server/src/services/auth.service";
 
-
 export default function NewCarOwner() {
   const [showPopup] = React.useState(true);
   const navigate = useNavigate();
@@ -47,7 +46,10 @@ export default function NewCarOwner() {
       onClose={() => navigate(-1)}
     >
       <div className="px-[10px]">
-        <form className="-mx-3 flex mt-4 flex-col gap-4" onSubmit={handleSubmit}>
+        <form
+          className="-mx-3 flex mt-4 flex-col gap-4"
+          onSubmit={handleSubmit}
+        >
           <div className="flex flex-col gap-2">
             <label
               htmlFor="names"
@@ -56,6 +58,7 @@ export default function NewCarOwner() {
               Owner Names
             </label>
             <input
+              value={values.names}
               name="names"
               id="names"
               placeholder="John Doe"
@@ -71,6 +74,7 @@ export default function NewCarOwner() {
               owner address
             </label>
             <input
+              value={values.address}
               name="address"
               id="address"
               placeholder="Kigali"
@@ -85,12 +89,13 @@ export default function NewCarOwner() {
               Owner national Id
             </label>
             <input
+              value={values.nationalId}
               type="number"
               max="16"
               min="16"
               required
               name="nationalId"
-              id="nationa_id"
+              id="nationalId"
               placeholder="1200456783452375"
               className=" rounded-2xl border border-gray-300 text-gray-900 sm:text-sm outline-none focus:ring-blue-500 block w-[346px] p-2.5"
             />
@@ -103,7 +108,8 @@ export default function NewCarOwner() {
               Owner phone number
             </label>
             <input
-            onChange={handleChange}
+              value={values.phone}
+              onChange={handleChange}
               type="tel"
               name="phone"
               id="phone"

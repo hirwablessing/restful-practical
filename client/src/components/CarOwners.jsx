@@ -1,19 +1,18 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { getOwners } from "../../../server/src/services/auth.service";
 
 export default function Dashboard() {
   const [data, setData] = useState([]);
 
-  useEffect(()=>{
-    async function fetchData(){
+  useEffect(() => {
+    async function fetchData() {
       const owners = await getOwners();
       setData(owners.data);
     }
 
     fetchData();
-  },[])
-
+  }, []);
 
   const navigate = useNavigate();
 
@@ -112,9 +111,7 @@ export default function Dashboard() {
                         </tr>
                       </thead>
                       <tbody>
-
-
-                      <tr>
+                        <tr>
                           <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                             <div className="flex items-center">
                               <div className="ml-3">
@@ -147,43 +144,42 @@ export default function Dashboard() {
                             </div>
                           </td>
                         </tr>
-                       
-              {data.map(owner => (
 
-                        <tr>
-                          <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                            <div className="flex items-center">
-                              <div className="ml-3">
-                                <p className="text-gray-900 whitespace-no-wrap">
-                                  {owner.names}
-                                </p>
+                        {data.map((owner) => (
+                          <tr>
+                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                              <div className="flex items-center">
+                                <div className="ml-3">
+                                  <p className="text-gray-900 whitespace-no-wrap">
+                                    {owner?.names}
+                                  </p>
+                                </div>
                               </div>
-                            </div>
-                          </td>
-                          <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                            <p className="text-gray-900 whitespace-no-wrap">
-                              {owner?.email}
-                            </p>
-                          </td>
-                          <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                            <p className="text-gray-900 whitespace-no-wrap">
-                              {owner?.nationalId}
-                            </p>
-                          </td>
-                          <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                            <p className="text-gray-900 whitespace-no-wrap">
-                              {owner?.phone}
-                            </p>
-                          </td>
-                          <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                            <div className="flex gap-4">
-                              <span>Edit</span>
+                            </td>
+                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                              <p className="text-gray-900 whitespace-no-wrap">
+                                {owner?.email}
+                              </p>
+                            </td>
+                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                              <p className="text-gray-900 whitespace-no-wrap">
+                                {owner?.nationalId}
+                              </p>
+                            </td>
+                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                              <p className="text-gray-900 whitespace-no-wrap">
+                                {owner?.phone}
+                              </p>
+                            </td>
+                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                              <div className="flex gap-4">
+                                <span>Edit</span>
 
-                              <span>Delete</span>
-                            </div>
-                          </td>
-                        </tr>
-              ))}
+                                <span>Delete</span>
+                              </div>
+                            </td>
+                          </tr>
+                        ))}
                       </tbody>
                     </table>
                   </div>

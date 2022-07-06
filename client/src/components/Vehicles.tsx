@@ -1,20 +1,18 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { getVehicles } from "../../../server/src/services/auth.service";
 
 export default function Vehicles() {
   const [data, setData] = useState([]);
 
-  useEffect(()=>{
-    async function fetchData(){
+  useEffect(() => {
+    async function fetchData() {
       const owners = await getVehicles();
       setData(owners.data);
     }
 
     fetchData();
-  },[])
-
-
+  }, []);
 
   const navigate = useNavigate();
   return (
@@ -164,57 +162,56 @@ export default function Vehicles() {
                           </td>
                         </tr>
 
-    {data.map(vehicle => (
-                        <tr>
-                          <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                            <div className="flex items-center">
-                              <div className="ml-3">
-                                <p className="text-gray-900 whitespace-no-wrap">
-                                  {vehicle?.chasisNumber}
-                                </p>
+                        {data.map((vehicle) => (
+                          <tr>
+                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                              <div className="flex items-center">
+                                <div className="ml-3">
+                                  <p className="text-gray-900 whitespace-no-wrap">
+                                    {vehicle?.chasisNumber}
+                                  </p>
+                                </div>
                               </div>
-                            </div>
-                          </td>
-                          <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                            <p className="text-gray-900 whitespace-no-wrap">
-                              {vehicle?.manufacturer}
-                            </p>
-                          </td>
-                          <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                            <p className="text-gray-900 whitespace-no-wrap">
-                              {vehicle?.manufactureYear}
-                            </p>
-                          </td>
-                          <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                            <p className="text-gray-900 whitespace-no-wrap">
-                              {vehicle?.price}
-                            </p>
-                          </td>
-                          <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                            <p className="text-gray-900 whitespace-no-wrap">
-                              {vehicle.plateNumber}
-                            </p>
-                          </td>
+                            </td>
+                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                              <p className="text-gray-900 whitespace-no-wrap">
+                                {vehicle?.manufacturer}
+                              </p>
+                            </td>
+                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                              <p className="text-gray-900 whitespace-no-wrap">
+                                {vehicle?.manufactureYear}
+                              </p>
+                            </td>
+                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                              <p className="text-gray-900 whitespace-no-wrap">
+                                {vehicle?.price}
+                              </p>
+                            </td>
+                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                              <p className="text-gray-900 whitespace-no-wrap">
+                                {vehicle?.plateNumber}
+                              </p>
+                            </td>
 
-                          <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                            <p className="text-gray-900 whitespace-no-wrap">
-                              {vehicle.model}
-                            </p>
-                          </td>
+                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                              <p className="text-gray-900 whitespace-no-wrap">
+                                {vehicle?.model}
+                              </p>
+                            </td>
 
-                          <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                            <p className="text-gray-900 whitespace-no-wrap">
-                              <Link
-                                to={"/link-vehicle"}
-                                className="tex-sm text-primary underline"
-                              >
-                                Link owner
-                              </Link>
-                            </p>
-                          </td>
-                        </tr>
-
-    ))}
+                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                              <p className="text-gray-900 whitespace-no-wrap">
+                                <Link
+                                  to={"/link-vehicle"}
+                                  className="tex-sm text-primary underline"
+                                >
+                                  Link owner
+                                </Link>
+                              </p>
+                            </td>
+                          </tr>
+                        ))}
                       </tbody>
                     </table>
                   </div>
