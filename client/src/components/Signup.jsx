@@ -41,7 +41,7 @@ export default function Signup() {
     <div className="">
       <div className="w-full overflow-hidden rounded-3xl bg-white ">
         <div className="w-full md:flex">
-          <div className="hidden w-1/2 items-center justify-center bg-lightblue py-10 px-10 md:flex md:flex-col md:gap-[33px]">
+          <div className="hidden w-1/2 h-screen items-center justify-center bg-lightblue py-10 px-10 md:flex md:flex-col md:gap-[33px]">
             <img src="/img/logo.png" alt="rra logo" srcset="" />
             <p className="text-primary font-bold tex-base">
               Welcome to <br />
