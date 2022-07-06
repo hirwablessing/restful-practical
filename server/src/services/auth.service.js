@@ -162,4 +162,12 @@ async function getVehicles() {
 
 
 
-export { register, login, userProfile };
+export {
+  register,
+  login,
+  userProfile,
+  getVehicles,
+  getOwners,
+  createVehicle,
+  createOwner,
+};
