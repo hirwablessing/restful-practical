@@ -25,5 +25,13 @@ const Schema = mongoose.Schema({
 });
 
 registerSchema('CarOwner', Schema, { orm: 'mongoose' });
+
+//create mongoose virtual ref for vehicle
+Schema.virtual("vehicles", {
+    ref: "Vehicle",
+    localField: "_id",
+    foreignField: "ownerId",
+})
+
 const Owner = mongoose.model("Owner", Schema);
 export default Owner;

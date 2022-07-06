@@ -39,10 +39,24 @@ const Schema = mongoose.Schema({
         unique: true,
         maxLength: 8,
     },
+    ownerId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Owner",
+        required: false,
+    }
+
 }, {
     timestamps: true
 });
 
 registerSchema('Vehicle', Schema, { orm: 'mongoose' });
+//create mongoose virtual ref for owner
+Schema.virtual("owner", {
+    ref: "Owner",
+    localField: "ownerId",
+    foreignField: "_id",
+    justOne: true
+});
+
 const Vehicle = mongoose.model("Vehicle", Schema);
 export default Vehicle;
