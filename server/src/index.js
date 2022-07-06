@@ -5,6 +5,7 @@ import cors from 'cors';
 import db from './database';
 import authRoute from './routes/auth.routes';
 import ownersRoute from './routes/owner.routes';
+import vehiclesRoute from './routes/vehicle.routes';
 
 const app = express();
 
@@ -22,6 +23,7 @@ new Swaggiffy().setupExpress(app).swaggiffy(); // Setup Swaggiffy for documentat
 
 app.use('/api/v1/auth', authRoute);
 app.use('/api/v1/owners', ownersRoute);
+app.use('/api/v1/vehicles', vehiclesRoute);
 
 
 const PORT = 5000;
