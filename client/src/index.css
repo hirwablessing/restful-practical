@@ -14,3 +14,7 @@ input:focus {
 body {
   font-family: "Outfit", sans-serif;
 }
+
+tr:nth-child(od) {
+  background-color: @apply bg-gray-600;
+}

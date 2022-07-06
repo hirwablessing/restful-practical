@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import "../styles/login.css";
 
@@ -33,7 +33,7 @@ export default function Login() {
                 name="email"
                 id="email"
                 placeholder="john@gmail.com"
-                className=" rounded-xl border border-gray-400 text-black text-black sm:text-sm outline-none focus:ring-blue-500 block w-full p-2.5"
+                className=" rounded-xl border border-gray-400 text-black sm:text-sm outline-none focus:ring-blue-500 block w-full p-2.5"
               />
             </div>
 
@@ -50,7 +50,7 @@ export default function Login() {
                 id="password"
                 type="password"
                 placeholder="Enter password"
-                className="rounded-xl border border-gray-400 text-black text-black sm:text-sm outline-none focus:ring-blue-500 block w-full p-2.5"
+                className="rounded-xl border border-gray-400 text-black sm:text-sm outline-none focus:ring-blue-500 block w-full p-2.5"
               />
             </div>
           </div>
