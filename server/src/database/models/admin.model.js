@@ -32,6 +32,8 @@ const Schema = mongoose.Schema({
         type: Boolean,
         default: true,
     },
+}, {
+    timestamps: true
 });
 
 registerSchema('Admin', Schema, { orm: 'mongoose' });
